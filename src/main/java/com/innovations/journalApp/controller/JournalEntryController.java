@@ -1,10 +1,9 @@
 package com.innovations.journalApp.controller;
 
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import lombok.extern.log4j.Log4j2;
+import com.innovations.journalApp.entity.JournalEntry;
+import com.innovations.journalApp.entity.User;
+import com.innovations.journalApp.service.JournalEntryService;
+import com.innovations.journalApp.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +13,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import com.innovations.journalApp.entity.JournalEntry;
-import com.innovations.journalApp.entity.User;
-import com.innovations.journalApp.service.JournalEntryService;
-import com.innovations.journalApp.service.UserService;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/journal")

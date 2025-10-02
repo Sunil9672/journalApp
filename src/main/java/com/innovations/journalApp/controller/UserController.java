@@ -1,5 +1,6 @@
 package com.innovations.journalApp.controller;
 
+import com.innovations.journalApp.cache.AppCache;
 import com.innovations.journalApp.entity.QuoteResponse;
 import com.innovations.journalApp.entity.User;
 import com.innovations.journalApp.service.QuoteService;
@@ -18,6 +19,8 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
+    @Autowired
+    AppCache appCache;
 
     private final QuoteService quoteService;;
 
@@ -64,4 +67,9 @@ public class UserController {
 
 		return new ResponseEntity<User>(userInDb, HttpStatus.NOT_FOUND);
 	}
+    
+    @PostMapping("reset-app-cache")
+    public void resetAppCache(){
+        appCache.initCache();
+    }
 }

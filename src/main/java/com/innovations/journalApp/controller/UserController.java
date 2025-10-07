@@ -4,6 +4,7 @@ import com.innovations.journalApp.cache.AppCache;
 import com.innovations.journalApp.entity.QuoteResponse;
 import com.innovations.journalApp.entity.User;
 import com.innovations.journalApp.service.QuoteService;
+import com.innovations.journalApp.service.UserDetailsServiceImpl;
 import com.innovations.journalApp.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,6 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
-    @Autowired
-    AppCache appCache;
 
     private final QuoteService quoteService;;
 
@@ -67,9 +66,4 @@ public class UserController {
 
 		return new ResponseEntity<User>(userInDb, HttpStatus.NOT_FOUND);
 	}
-    
-    @PostMapping("reset-app-cache")
-    public void resetAppCache(){
-        appCache.initCache();
-    }
 }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.innovations.journalApp.repository.UserRepositoryImpl;
+import lombok.RequiredArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,10 +18,10 @@ import com.innovations.journalApp.repository.JournalEntryRepository;
 import com.innovations.journalApp.repository.UserRepository;
 
 @Component
+@RequiredArgsConstructor
 public class UserService {
 
-	@Autowired
-	UserRepository userRepository;
+	private final UserRepository userRepository;
 
 	private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
